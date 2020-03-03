@@ -40,6 +40,7 @@ cd program_synthesis
 pip3 install -e .
 cd ..
 
+rm data/DeepCoder_data
 ln -s $data_dir/DeepCoder_data data/DeepCoder_data
 
 echo "Done! Run:"
