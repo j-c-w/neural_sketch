@@ -1,0 +1,26 @@
+This is a set of instructions to get this thing working on Eddie.
+
+# Building the model
+Needs to be done on an Eddie GPU instance: qlogin -l h_vmem=8G -pe gpu 1
+
+run to install it.
+> ./install.sh
+
+Then execute the output line that sets up the python environment.
+
+They run:
+./retrain.sh <some dir in the exports>
+
+That does the main training thing.
+
+
+Then there are the sub training options, which you get to  by doing some
+stuff in the main README.
+
+
+# Errors
+if you get some errors about nvidia drivers not being compatible,
+try making sure that torch==1.4.0 is installed
+
+can also try:
+try running nvidia-smi and checking the cuda version.
