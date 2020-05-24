@@ -35,7 +35,7 @@ popd
 wait
 
 export PATH=$install_dir/bin:$PATH
-pip3 install torch numpy dill matplotlib
+pip3 install torch==1.4.0 numpy dill matplotlib
 cd program_synthesis
 pip3 install -e .
 cd ..
