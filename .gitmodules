@@ -1,15 +1,15 @@
 [submodule "pinn"]
 	path = pinn
-	url = https://github.com/insperatum/pinn.git
+	url = git@github.com:insperatum/pinn.git
 [submodule "pregex"]
 	path = pregex
-	url = https://github.com/insperatum/pregex.git
+	url = git@github.com:insperatum/pregex.git
 [submodule "vhe"]
 	path = vhe
-	url = https://github.com/insperatum/vhe.git
+	url = git@github.com:insperatum/vhe.git
 [submodule "ec"]
 	path = ec
-	url = https://github.com/ellisk42/ec.git
+	url = git@github.com:ellisk42/ec.git
 [submodule "program_synthesis"]
 	path = program_synthesis
-	url = https://github.com/mtensor/program_synthesis.git
+	url = git@github.com:mtensor/program_synthesis.git
