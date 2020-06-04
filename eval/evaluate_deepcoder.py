@@ -9,7 +9,6 @@ import argparse
 
 import torch
 from torch import nn, optim
-from pinn import RobustFill
 import random
 import math
 import time
@@ -18,6 +17,7 @@ import pickle
 from util.deepcoder_util import basegrammar
 from util.deepcoder_util import parseprogram, tokenize_for_robustfill
 from data_src.makeDeepcoderData import batchloader
+from data_src.makeDeepcoderData import Datum
 from plot.manipulate_results import percent_solved_n_checked, percent_solved_time, plot_result
 
 from util.pypy_util import DeepcoderResult, alternate, pypy_enumerate, SketchTup
@@ -152,7 +152,7 @@ def save_results(results, args):
 	else:
 		dc = 'wdcModel_' if args.dcModel else ''
 		filename = "results/prelim_results_" + dc + r + timestr + '.p'
-	with open(filename, 'wb') as savefile:
+	with open(filename, 'wb+') as savefile:
 		dill.dump(results, savefile)
 		print("results file saved at", filename)
 	return savefile
@@ -169,7 +169,7 @@ if __name__=='__main__':
 		model = torch.load(args.model_path, map_location='cpu') #TODO
 	if args.dcModel:
 		print("loading dc_model")
-		dcModel = torch.load(args.dcModel_path)
+		dcModel = torch.load(args.dcModel_path, map_location="cpu")
 	else: dcModel = None
 
 	# ###load the test dataset###
@@ -188,12 +188,16 @@ if __name__=='__main__':
 		#import data_src.makeDeepcoderData as makeDeepcoderData
 		dataset = pickle.load(datafile)
 	# optional:
+	print(type(dataset))
+	if str(type(dataset)) == "<class 'data_src.makeDeepcoderData.Datum'>":
+		print("Loading a single item, wrapping in a tuple")
+		dataset = (dataset,)
 
 	if args.shuffled:
 		random.seed(42)
 		random.shuffle(dataset)
 	#dataset = random.shuffle(dataset)
-	del dataset[args.n_test:]
+	# del dataset[args.n_test:]
 
 	results = evaluate_dataset(model, dataset, nSamples, mdl, max_to_check, dcModel=dcModel)
 

@@ -80,7 +80,7 @@ def plot_result(results=None, baseresults=None, resultsfile=None, basefile='resu
 			with open(basefile, 'rb') as savefile:
 				baseresults = dill.load(savefile)
 		except FileNotFoundError:
-			with open('../../'+basefile, 'rb') as savefile:  # in case it is not in this directory
+			with open('../'+basefile, 'rb') as savefile:  # in case it is not in this directory
 				baseresults = dill.load(savefile)
 
 	filename = model_path + str(time.time()) if model_path else str(time.time())
