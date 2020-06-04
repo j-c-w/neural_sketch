@@ -17,6 +17,16 @@ That does the main training thing.
 Then there are the sub training options, which you get to  by doing some
 stuff in the main README.
 
+# Running the Model
+You need the dependencies in ./install.sh, and pypy3.
+
+Don't just run install.sh though, that's built for the cluster.  Have
+a look in there to see what it installs.
+
+There's a script called ./install_eval.sh that that installs
+a pypy locally for a non-cluster machine, so you can take a
+look at that.
+
 
 # Errors
 if you get some errors about nvidia drivers not being compatible,
