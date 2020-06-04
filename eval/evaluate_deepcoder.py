@@ -22,6 +22,10 @@ from plot.manipulate_results import percent_solved_n_checked, percent_solved_tim
 
 from util.pypy_util import DeepcoderResult, alternate, pypy_enumerate, SketchTup
 
+# Get the gen_utils for decompression the Datum objects.
+sys.path.insert(1, '../examples/')
+import gen_utils
+
 # TODO
 
 from program import ParseFailure, Context
@@ -162,7 +166,7 @@ if __name__=='__main__':
 		model = None
 	else:
 		print("loading model with holes")
-		model = torch.load(args.model_path) #TODO
+		model = torch.load(args.model_path, map_location='cpu') #TODO
 	if args.dcModel:
 		print("loading dc_model")
 		dcModel = torch.load(args.dcModel_path)
