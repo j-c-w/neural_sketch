@@ -12,8 +12,8 @@ if [[ -d pypy3.6-v7.3.1-linux64 ]]; then
 fi
 
 wget https://downloads.python.org/pypy/pypy3.6-v7.3.2-linux64.tar.bz2
-tar -xvjf pypy3.6-v7.3.1-linux64.tar.bz2
-cd pypy3.6-v7.3.1-linux64
+tar -xvjf pypy3.6-v7.3.2-linux64.tar.bz2
+cd pypy3.6-v7.3.2-linux64
 
 echo "Make sure to run the following: "
 echo "export PATH=\$PATH:$PWD/bin"
